@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Register</h2>
+
+<form action="/auth/register" method="post">
+    <div class="mb-3">
+        <label>Name</label>
+        <input class="form-control" name="name" required>
+    </div>
+    
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" required>
+    </div>
+    
+    <div class="mb-3">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" required>
+    </div>
+    
+    <div class="mb-3">
+        <label>Role</label>
+        <select name="role" class="form-control">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-success">Register</button>
+</form>
+
+<p style="margin-top: 20px;">
+    Already have an account? <a href="/login">Login here</a>
+</p>
+
+{% endblock %}

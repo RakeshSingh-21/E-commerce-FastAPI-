@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>E-Commerce Store</h1>
+</header>
+
+<nav>
+    <a href="/products-page">Home</a>
+    <a href="/products-page">Products</a>
+    {% if request.cookies.get('access_token') %}
+        <span style="color: white; margin-left: 20px;">Welcome, {{ user.name if user else 'User' }}!</span>
+        <form action="/auth/logout" method="post" style="display: inline; margin-left: 20px;">
+            <button type="submit" style="background: none; border: none; color: white; cursor: pointer;">Logout</button>
+        </form>
+    {% endif %}
+</nav>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
